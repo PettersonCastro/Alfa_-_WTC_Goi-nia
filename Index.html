@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parceria Alfa & WTC Goiânia | Educação Executiva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Variáveis de Cor - Paleta Editorial Alfa */
+        :root {
+            --alfa-red: #c8102e; 
+            --bg-sand: #f5f3ef; 
+            --bg-dark: #1a1a18; 
+            --bg-card: #ebe7de; 
+            --text-dark: #1a1a18;
+            --text-light: #f5f3ef;
+            --text-muted: #5c5c56;
+            --font-body: 'Urbanist', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-sand);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .serif {
+            font-family: var(--font-serif);
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header Estilo Pílula */
+        header {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 80px);
+            max-width: 1220px;
+            background: rgba(245, 243, 239, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 100px;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .logo span { color: var(--alfa-red); }
+
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-pill {
+            background-color: var(--alfa-red);
+            color: var(--text-light);
+            padding: 12px 30px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .btn-pill:hover { transform: scale(1.05); }
+
+        section { padding: 120px 0; }
+
+        /* HERO */
+        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; }
+        .huge-title { font-size: 11vw; line-height: 0.85; letter-spacing: -0.04em; margin-bottom: 30px; }
+        .huge-title i { font-style: italic; color: var(--alfa-red); }
+
+        /* QUEM SOMOS ALFA */
+        .sobre-grid { display: grid; grid-template-columns: 4fr 5fr; gap: 80px; align-items: center; }
+        .img-pill { border-radius: 200px; overflow: hidden; height: 550px; }
+        .img-pill img { width: 100%; height: 100%; object-fit: cover; }
+        .section-tag { font-size: 11px; text-transform: uppercase; letter-spacing: 3px; color: var(--alfa-red); font-weight: 700; margin-bottom: 20px; display: block; }
+        .editorial-title { font-size: 52px; line-height: 1.1; margin-bottom: 30px; }
+
+        .feature-list { list-style: none; border-top: 1px solid rgba(0,0,0,0.1); }
+        .feature-list li { padding: 25px 0; border-bottom: 1px solid rgba(0,0,0,0.1); display: flex; align-items: flex-start; gap: 20px; }
+        .feature-list h4 { font-size: 22px; margin-bottom: 5px; }
+
+        /* GRUPO JOSÉ ALVES & PARCEIROS STYLE */
+        .gja-section { background-color: var(--bg-card); border-radius: 60px; padding: 100px 60px; margin: 0 20px; }
+        .gja-content { text-align: center; max-width: 800px; margin: 0 auto 60px; }
+        
+        .logo-wall {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 40px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .logo-item {
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            /* Removido o filtro grayscale e opacidade para manter colorido */
+        }
+
+        .logo-item:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-img-wrapper {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-img-wrapper img {
+            max-width: 150px;
+            max-height: 100%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+        }
+
+        .logo-item p {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dark);
+        }
+
+        /* CENÁRIO */
+        .bg-dark-section { background-color: var(--bg-dark); color: var(--text-light); border-radius: 60px; margin: 40px 20px; padding: 100px 60px; }
+        .card-dark { background: rgba(255,255,255,0.05); padding: 40px 30px; border-radius: 20px; text-align: center; }
+
+        /* VALOR */
+        .big-number { font-family: var(--font-serif); font-size: 180px; line-height: 0.8; color: var(--alfa-red); letter-spacing: -8px; margin-bottom: 20px; }
+
+        /* BENEFÍCIOS */
+        .beneficios-masonry { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; }
+        .ben-card { background: var(--bg-card); padding: 50px 40px; border-radius: 30px; display: flex; flex-direction: column; justify-content: space-between; min-height: 350px; }
+
+        /* INFRAESTRUTURA */
+        .infra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .infra-img { border-radius: 30px; overflow: hidden; height: 600px; }
+        .infra-img img { width: 100%; height: 100%; object-fit: cover; }
+        .economia-box { border: 1px solid var(--text-dark); border-radius: 20px; padding: 40px; margin-top: 40px; text-align: center; }
+        .economia-box span { display: block; font-family: var(--font-serif); font-size: 50px; color: var(--alfa-red); line-height: 1; }
+
+        /* ÁREAS */
+        .areas-container { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 40px; }
+        .area-pill { border: 1px solid var(--text-muted); padding: 15px 30px; border-radius: 100px; font-size: 18px; font-family: var(--font-serif); }
+
+        /* FOOTER */
+        footer { text-align: center; padding: 60px 20px; border-top: 1px solid rgba(0,0,0,0.1); }
+
+        @media (max-width: 1024px) {
+            .huge-title { font-size: 14vw; }
+            .sobre-grid, .cenario-grid, .infra-grid { grid-template-columns: 1fr; }
+            .logo-wall { grid-template-columns: 1fr 1fr; }
+            .beneficios-masonry { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">alfa<span>.</span></a>
+        <div class="nav-links">
+            <a href="#sobre">A Essência</a>
+            <a href="#gja">Grupo GJA</a>
+            <a href="#beneficios">A Proposta</a>
+            <a href="#parceiros">Parceiros</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 class="huge-title">alfa <br><i>&</i> wtc</h1>
+            <p style="font-size: 22px; color: var(--text-muted); max-width: 500px;">Parceria Estratégica em Educação Executiva. Elevando o potencial humano e a performance corporativa.</p>
+        </div>
+    </section>
+
+    <!-- QUEM SOMOS ALFA -->
+    <section id="sobre">
+        <div class="container sobre-grid">
+            <div class="img-pill">
+                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80" alt="">
+            </div>
+            <div>
+                <span class="section-tag">A Essência Alfa</span>
+                <h2 class="editorial-title">Mais de 25 anos transformando carreiras com foco no mercado.</h2>
+                <ul class="feature-list">
+                    <li>
+                        <div style="color: var(--alfa-red); font-size: 24px;">01.</div>
+                        <div>
+                            <h4>Nota Máxima MEC</h4>
+                            <p>Qualidade institucional comprovada com excelência máxima pelo MEC.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="color: var(--alfa-red); font-size: 24px;">02.</div>
+                        <div>
+                            <h4>Foco no Mercado</h4>
+                            <p>Metodologia pautada na prática e na aplicação imediata dos conhecimentos.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="color: var(--alfa-red); font-size: 24px;">03.</div>
+                        <div>
+                            <h4>Corpo Docente</h4>
+                            <p>Mestres e Doutores com reconhecida experiência prática em grandes organizações.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- GRUPO JOSÉ ALVES -->
+    <section id="gja" style="padding-top: 0;">
+        <div class="container">
+            <div class="gja-section">
+                <div class="gja-content">
+                    <span class="section-tag" style="text-align: center;">Holding de Sucesso</span>
+                    <h2 class="editorial-title">Solidez do Grupo José Alves</h2>
+                    <p style="font-size: 18px; color: var(--text-muted);">A Alfa Educação Executiva orgulha-se de compor um dos maiores conglomerados empresariais do Centro-Oeste brasileiro.</p>
+                </div>
+
+                <div class="logo-wall">
+                    <div class="logo-item">
+                        <div class="logo-img-wrapper"><img src="Coca-Cola_logo.svg.png" alt="Coca-Cola"></div>
+                        <p>Coca-Cola<br>Bandeirantes</p>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img-wrapper"><img src="vitamedic_logo.jpg" alt="Vitamedic"></div>
+                        <p>Vitamedic</p>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img-wrapper"><img src="unialfa.png" alt="Unialfa"></div>
+                        <p>Unialfa</p>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img-wrapper"><img src="logo-fadisp.png" alt="Fadisp"></div>
+                        <p>Fadisp</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CENÁRIO -->
+    <section id="cenario" class="bg-dark-section">
+        <div class="container">
+            <span class="section-tag">O Contexto</span>
+            <h2 class="editorial-title" style="color: white; max-width: 700px;">O cenário atual da hotelaria de alto padrão.</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
+                <div class="card-dark"><h4 style="color: white;">Alta Competitividade</h4></div>
+                <div class="card-dark"><h4 style="color: white;">Necessidade de Liderança</h4></div>
+                <div class="card-dark" style="grid-column: span 2;"><h4 style="color: white;">Inovação e Inteligência Artificial</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALOR -->
+    <section style="text-align: center;">
+        <div class="container">
+            <div class="big-number">35%</div>
+            <h2 class="editorial-title">Mais Retenção de Talentos</h2>
+            <p style="font-size: 20px; max-width: 700px; margin: 0 auto; color: var(--text-muted);">Colaboradores incentivados têm maior engajamento e permanecem na organização, reduzindo drasticamente os custos de turnover.</p>
+        </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section id="beneficios">
+        <div class="container">
+            <span class="section-tag">Proposta de Valor</span>
+            <h2 class="editorial-title">Um ecossistema de benefícios.</h2>
+            <div class="beneficios-masonry">
+                <div class="ben-card">
+                    <h3>Descontos Exclusivos</h3>
+                    <p>Condições financeiras diferenciadas para colaboradores e dependentes em todo o ecossistema Alfa.</p>
+                </div>
+                <div class="ben-card" style="background-color: var(--text-dark); color: var(--text-light);">
+                    <h3 style="color: white;">Portfólio Completo</h3>
+                    <p style="color: #a1a1aa;">Da graduação à pós-graduação, incluindo Programas Premium de Mestrado e Doutorado.</p>
+                </div>
+                <div class="ben-card">
+                    <h3>Curta Duração</h3>
+                    <p>Extensões focadas em competências específicas para rápida aplicação no dia a dia da hotelaria.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFRAESTRUTURA -->
+    <section id="infraestrutura">
+        <div class="container infra-grid">
+            <div>
+                <span class="section-tag">Apoio Logístico</span>
+                <h2 class="editorial-title">Isenção total de taxas de locação.</h2>
+                <p style="font-size: 18px; color: var(--text-muted);">O WTC poderá utilizar nossas instalações acadêmicas premium para treinamentos e eventos internos sem custos.</p>
+                <div class="economia-box">
+                    <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: 600;">Economia Estimada</p>
+                    <span>R$ 10k — 15k</span>
+                    <p style="color: var(--text-muted); font-size: 14px;">Por evento realizado (valor de mercado).</p>
+                </div>
+            </div>
+            <div class="infra-img">
+                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- ÁREAS -->
+    <section id="areas">
+        <div class="container">
+            <span class="section-tag">Desenvolvimento</span>
+            <h2 class="editorial-title">Educação In Company.</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+                <div><h4>Palestras e Workshops</h4><p>Disponíveis para SIPAT ou eventos corporativos presenciais no hotel.</p></div>
+                <div><h4>Educação Executiva</h4><p>Cursos personalizados conforme a demanda estratégica do WTC.</p></div>
+            </div>
+            <div class="areas-container">
+                <div class="area-pill">Finanças & Gestão</div>
+                <div class="area-pill">Liderança & RH</div>
+                <div class="area-pill">Comercial & Vendas</div>
+                <div class="area-pill">IA & Inovação</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARCEIROS DE SUCESSO (Com logos reais) -->
+    <section id="parceiros" style="padding-top: 50px;">
+        <div class="container">
+            <div class="gja-section">
+                <div class="gja-content">
+                    <span class="section-tag" style="text-align: center;">Networking & Confiança</span>
+                    <h2 class="editorial-title">Grandes marcas que confiam na Alfa</h2>
+                    <p style="font-size: 18px; color: var(--text-muted);">Empresas líderes que já transformam os seus resultados através da nossa Educação Executiva.</p>
+                </div>
+
+                <div class="logo-wall">
+                    <div class="logo-item">
+                        <div class="logo-img-wrapper">
+                            <img src="JBS_S.A.png" alt="JBS">
+                        </div>
+                        <p>JBS</p>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img-wrapper">
+                            <img src="logo-m-m-page-0001-1701182050_1704218182-removebg-preview___CuPa6KXZUCn2h7QNpuCtZ.webp" alt="Milkmoo">
+                        </div>
+                        <p>Milkmoo</p>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img-wrapper">
+                            <img src="Identidade-Redes-Sociais-FAJE-1.pdf-e1763765709562.png" alt="FAJE">
+                        </div>
+                        <p>FAJE</p>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img-wrapper">
+                            <img src="sicoob-logo-0.png" alt="Sicoob">
+                        </div>
+                        <p>Sicoob</p>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img-wrapper">
+                            <img src="logo-sicredi-icon-1024.png" alt="Sicredi">
+                        </div>
+                        <p>Sicredi</p>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img-wrapper">
+                            <img src="Unimed_institucional.png" alt="Unimed">
+                        </div>
+                        <p>Unimed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL / CTA -->
+    <section id="contato" style="padding: 100px 0 50px;">
+        <div class="container" style="text-align: center;">
+            <h2 class="editorial-title" style="font-size: 48px; margin-bottom: 20px;">Vamos elevar o nível<br>do seu time juntos?</h2>
+            <p style="font-size: 20px; color: var(--text-muted); margin-bottom: 40px; font-family: var(--font-serif); font-style: italic;">Consultoria de Pós-Graduação • Unidade Goiânia</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="font-family: var(--font-serif); font-size: 20px; margin-bottom: 10px;">alfa<span>.</span></p>
+            <p style="color: var(--text-muted); font-size: 14px;">&copy; 2026 - Departamento de Pós-Graduação Alfa. Proposta Confidencial.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
